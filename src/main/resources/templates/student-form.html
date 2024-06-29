@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/demo.css}" />
+</head>
+<body style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSywW7zet1lSnmo79fEg0aHxHedjx0bo5mJ3Q&s') no-repeat center center/cover;">
+<section class="container">
+    <header>Student Registration Form</header>
+    <form th:action="@{/processStudentForm}" th:object="${student}" method="POST" class="form">
+        <div class="input-box">
+            <label>First Name</label>
+            <input type="text" th:field="*{firstName}" placeholder="Enter first name" required />
+        </div>
+        <div class="input-box">
+            <label>Last Name</label>
+            <input type="text" th:field="*{lastName}" placeholder="Enter last name" required />
+        </div>
+        <div class="input-box">
+            <label>Country</label>
+            <select th:field="*{country}">
+                <option th:each="tempCountry : ${countries}" th:value="${tempCountry}" th:text="${tempCountry}"></option>
+            </select>
+        </div>
+        <div class="gender-box">
+            <h3>Favorite Programming Language</h3>
+            <div class="gender-option">
+                <div class="gender" th:each="tempLang : ${languages}">
+                    <input type="radio" th:field="*{favoriteLanguage}" th:value="${tempLang}" id="${tempLang}" required />
+                    <label th:for="${tempLang}" th:text="${tempLang}"></label>
+                </div>
+            </div>
+        </div>
+<!--<input type="checkbox" th:field="*{favoriteSystems}"
+                      th:each="tempSystem:${systems}"
+                      th:value="${tempSystem}"
+                      th:text="${tempSystem}"/>
+                       -->
+
+        <button type="submit">Submit</button>
+    </form>
+</section>
+</body>
+</html>
+
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/demo.css}" />
+</head>
+<body>
+<section class="container">
+    <header>Student Registration Form</header>
+    <form th:action="@{/processStudentForm}" th:object="${student}" method="POST" class="form">
+        <div class="input-box">
+            <label>First Name</label>
+            <input type="text" th:field="*{firstName}" placeholder="Enter first name" required />
+        </div>
+        <div class="input-box">
+            <label>Last Name</label>
+            <input type="text" th:field="*{lastName}" placeholder="Enter last name" required />
+        </div>
+        <div class="input-box">
+            <label>Country</label>
+            <select th:field="*{country}">
+                <option th:each="tempCountry : ${countries}" th:value="${tempCountry}" th:text="${tempCountry}"></option>
+            </select>
+        </div>
+        <div class="gender-box">
+            <h3>Favorite Programming Language</h3>
+            <div class="gender-option">
+                <div class="gender">
+                    <input type="radio" th:field="*{favoriteLanguage}" th:value="Python" id="python" required />
+                    <label for="python">Python</label>
+                </div>
+                <div class="gender">
+                    <input type="radio" th:field="*{favoriteLanguage}" th:value="Java" id="java" />
+                    <label for="java">Java</label>
+                </div>
+                <div class="gender">
+                    <input type="radio" th:field="*{favoriteLanguage}" th:value="PHP" id="php" />
+                    <label for="php">PHP</label>
+                </div>
+                <div class="gender">
+                    <input type="radio" th:field="*{favoriteLanguage}" th:value="Kotlin" id="kotlin" />
+                    <label for="kotlin">Kotlin</label>
+                </div>
+            </div>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</section>
+</body>
+</html>
+
+-->
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration</title>
+</head>
+<body>
+<h3>Student Registration Form</h3>
+<form th:action="@{/processStudentForm}" th:object="${student}" method="POST">
+    First name: <input type="text" th:field="*{firstName}" />
+    <br><br>
+    Last name: <input type="text" th:field="*{lastName}" />
+    <br><br>
+    Country:
+    <select th:field="*{country}">
+
+        <option th:each="tempCountry : ${countries}" th:value="${tempCountry}" th:text="${tempCountry}"/>
+    </select>
+    <br><br>
+
+    Favorite Programming Language:
+
+    <input type="radio" th:field="*{favoriteLanguage}" th:value="Python">Python</input>
+    <input type="radio" th:field="*{favoriteLanguage}" th:value="Java">Java</input>
+    <input type="radio" th:field="*{favoriteLanguage}" th:value="PHP">PHP</input>
+    <input type="radio" th:field="*{favoriteLanguage}" th:value="Kotlin">Kotlin</input>
+
+
+
+    <br><br>
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>
+
+-->

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Confirmation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/demo2.css}" />
+</head>
+<body>
+<div class="wrapper">
+    <h2>Student Confirmation</h2>
+    <div class="confirmation-box">
+        <p>The student is confirmed:</p>
+        <p><span th:text="${student.firstName} + ' ' + ${student.lastName}"></span></p>
+        <p>Country: <span th:text="${student.country}"></span></p>
+        <p>Favorite Programming Language: <span th:text="${student.favoriteLanguage}"></span></p>
+    </div>
+    <div class="home-link">
+        <a th:href="@{/showForm}">Go Back to Registration</a>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Confirmation</title>
+</head>
+<body>
+<h3>Student Confirmation</h3>
+The student is confirmed: <span th:text="${student.firstName} + ' ' + ${student.lastName}"></span>
+<br><br>
+ Country :<span th:text="${student.country} "/>
+
+<br><br>
+Favorite Programming Language :<span th:text="${student.favoriteLanguage} "/>
+
+</body>
+</html>-->
